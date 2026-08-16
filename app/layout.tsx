@@ -1,3 +1,4 @@
+import Script from 'next/script'
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -32,6 +33,12 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620369636312106"
+  crossOrigin="anonymous"
+  strategy="afterInteractive"
+/>
       </body>
     </html>
   );

@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description:
     "Calculate your exact take-home salary after tax, PF, and deductions. Free CTC to in-hand calculator and tax tools for Indian professionals.",
   robots: { index: true, follow: true },
+  other: {
+    'google-adsense-account': 'ca-pub-6620369636312106',
+  },
 };
 
 export default function RootLayout({

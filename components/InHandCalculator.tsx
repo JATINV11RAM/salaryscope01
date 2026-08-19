@@ -67,6 +67,7 @@ export default function InHandCalculator() {
         <div>
           <label className="block text-sm font-medium mb-1.5" style={{ color: "#1A1A2E" }}>
             Variable Pay Annual (₹)
+            <span className="ml-1 text-xs font-normal text-muted">(exclude if not guaranteed)</span>
           </label>
           <input
             type="number"
@@ -87,7 +88,7 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="Usually 40-50% of CTC"
+            placeholder="              Usually 40–50% of fixed salary"
             value={inputs.basicPercent}
             onChange={(e) => handleChange("basicPercent", Number(e.target.value))}
           />

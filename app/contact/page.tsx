@@ -19,7 +19,7 @@ export default function ContactPage() {
           <div className="space-y-4 mb-6">
             <div className="rounded-lg p-4" style={{ backgroundColor: "#F5F7FA", border: "1px solid #E5E7EB" }}>
               <div className="text-xs font-medium uppercase tracking-wider mb-1" style={{ color: "#6B7280" }}>Email</div>
-              <div className="font-medium" style={{ color: "#1A6B9A" }}>hello@salaryscope.in</div>
+              <div className="font-medium" style={{ color: "#1A6B9A" }}>support.salaryscope@gmail.com</div>
             </div>
             <div className="rounded-lg p-4" style={{ backgroundColor: "#F5F7FA", border: "1px solid #E5E7EB" }}>
               <div className="text-xs font-medium uppercase tracking-wider mb-1" style={{ color: "#6B7280" }}>Response Time</div>

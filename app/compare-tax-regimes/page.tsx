@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TaxRegimeCalculator from "@/components/TaxRegimeCalculator";
+import CalculatorDetails, { calculatorDetailData } from "@/components/CalculatorDetails";
 
 export const metadata: Metadata = {
   title: "Old vs New Tax Regime Calculator FY 2025-26",
@@ -21,6 +22,7 @@ export default function TaxRegimePage() {
           </p>
         </div>
         <TaxRegimeCalculator />
+        <CalculatorDetails {...calculatorDetailData("tax")} />
       </div>
     </div>
   );

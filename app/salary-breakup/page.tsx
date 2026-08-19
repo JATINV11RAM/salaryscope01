@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SalaryBreakupCalc from "@/components/SalaryBreakupCalc";
+import CalculatorDetails, { calculatorDetailData } from "@/components/CalculatorDetails";
 
 export const metadata: Metadata = {
   title: "Salary Breakup Calculator India",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function SalaryBreakupPage() {
   return (
-    <div className="py-12 px-4" style={{ backgroundColor: "#F5F7FA" }}>
+    <div className="py-12 px-4" style={{ backgroundColor: "var(--color-background)" }}>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: "#1A1A2E" }}>
@@ -19,6 +20,7 @@ export default function SalaryBreakupPage() {
           <p style={{ color: "#6B7280" }}>Understand every component inside your CTC</p>
         </div>
         <SalaryBreakupCalc />
+        <CalculatorDetails {...calculatorDetailData("breakup")} />
       </div>
     </div>
   );

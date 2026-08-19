@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NoticePeriodCalc from "@/components/NoticePeriodCalc";
+import CalculatorDetails, { calculatorDetailData } from "@/components/CalculatorDetails";
 
 export const metadata: Metadata = {
   title: "Notice Period Calculator India",
@@ -19,6 +20,7 @@ export default function NoticePeriodPage() {
           <p style={{ color: "#6B7280" }}>Find your exact last working day</p>
         </div>
         <NoticePeriodCalc />
+        <CalculatorDetails {...calculatorDetailData("notice")} />
       </div>
     </div>
   );

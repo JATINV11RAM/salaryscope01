@@ -70,7 +70,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold mt-6 mb-2" style={{ color: "#1A6B9A" }}>Contact Us</h2>
             <p className="mb-4">
               If you have any questions or concerns about this privacy policy or how we handle your privacy, 
-              please feel free to reach out to us. You can contact us at <strong>hello@salaryscope.in</strong>.
+              please feel free to reach out to us. You can contact us at <strong>support.salaryscope@gmail.com</strong>.
             </p>
           </div>
         </div>

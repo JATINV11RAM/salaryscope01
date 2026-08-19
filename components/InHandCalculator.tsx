@@ -5,8 +5,8 @@ import { calculateInHandSalary, formatINR, type InHandInputs } from "@/lib/calcu
 const defaultInputs: InHandInputs = {
   annualCTC: 0,
   variablePay: 0,
-  basicPercent: 40,
-  professionalTaxMonthly: 200,
+  basicPercent: 0,
+  professionalTaxMonthly: 0,
   taxRegime: "new",
   hraMonthly: 0,
   rentPaidMonthly: 0,
@@ -31,11 +31,11 @@ export default function InHandCalculator() {
       return;
     }
     setError("");
-    setResult(calculateInHandSalary(inputs));
+    setResult(calculateInHandSalary({ ...inputs, basicPercent: inputs.basicPercent || 40, professionalTaxMonthly: inputs.professionalTaxMonthly || 0 }));
   }
 
   const inputClass =
-    "w-full rounded-lg px-4 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-blue-300";
+    "w-full rounded-lg px-4 py-3 text-sm border focus:outline-none focus:ring-0";
   const inputStyle = {
     border: "1px solid #E5E7EB",
     color: "#1A1A2E",
@@ -57,7 +57,7 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="e.g. 1000000"
+            placeholder="Enter annual CTC"
             value={inputs.annualCTC || ""}
             onChange={(e) => handleChange("annualCTC", Number(e.target.value))}
           />
@@ -67,12 +67,13 @@ export default function InHandCalculator() {
         <div>
           <label className="block text-sm font-medium mb-1.5" style={{ color: "#1A1A2E" }}>
             Variable Pay Annual (₹)
+            <span className="ml-1 text-xs font-normal text-muted">(exclude if not guaranteed)</span>
           </label>
           <input
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="0 if none"
+            placeholder="Enter amount if applicable"
             value={inputs.variablePay || ""}
             onChange={(e) => handleChange("variablePay", Number(e.target.value))}
           />
@@ -87,8 +88,8 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="Usually 40-50% of CTC"
-            value={inputs.basicPercent}
+            placeholder="Enter basic salary percentage"
+            value={inputs.basicPercent || ""}
             onChange={(e) => handleChange("basicPercent", Number(e.target.value))}
           />
         </div>
@@ -102,8 +103,8 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="0 if your state has no PT"
-            value={inputs.professionalTaxMonthly}
+            placeholder="Enter monthly professional tax"
+            value={inputs.professionalTaxMonthly || ""}
             onChange={(e) => handleChange("professionalTaxMonthly", Number(e.target.value))}
           />
         </div>
@@ -155,7 +156,7 @@ export default function InHandCalculator() {
                 type="number"
                 className={inputClass}
                 style={{ ...inputStyle, backgroundColor: "#fff" }}
-                placeholder="0"
+                placeholder="Enter amount"
                 value={inputs.hraMonthly || ""}
                 onChange={(e) => handleChange("hraMonthly", Number(e.target.value))}
               />
@@ -168,7 +169,7 @@ export default function InHandCalculator() {
                 type="number"
                 className={inputClass}
                 style={{ ...inputStyle, backgroundColor: "#fff" }}
-                placeholder="0"
+                placeholder="Enter amount"
                 value={inputs.rentPaidMonthly || ""}
                 onChange={(e) => handleChange("rentPaidMonthly", Number(e.target.value))}
               />
@@ -183,7 +184,7 @@ export default function InHandCalculator() {
                     type="number"
                     className={inputClass}
                     style={{ ...inputStyle, backgroundColor: "#fff" }}
-                    placeholder="0"
+                    placeholder="Enter amount"
                     max={150000}
                     value={inputs.deduction80C || ""}
                     onChange={(e) => handleChange("deduction80C", Number(e.target.value))}
@@ -197,7 +198,7 @@ export default function InHandCalculator() {
                     type="number"
                     className={inputClass}
                     style={{ ...inputStyle, backgroundColor: "#fff" }}
-                    placeholder="0"
+                    placeholder="Enter amount"
                     max={25000}
                     value={inputs.deduction80D || ""}
                     onChange={(e) => handleChange("deduction80D", Number(e.target.value))}
@@ -286,6 +287,10 @@ export default function InHandCalculator() {
           <p className="mt-4 text-xs text-center" style={{ color: "#6B7280" }}>
             This is a planning estimate. Actual amount may vary based on exact payroll structure.
           </p>
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+            <button type="button" onClick={() => window.print()} className="flex-1 rounded-lg border border-border px-4 py-3 text-sm font-semibold text-foreground hover:bg-light-bg">Print / save PDF</button>
+            <button type="button" onClick={() => navigator.share?.({ title: "My SalaryScope estimate", text: `Estimated monthly in-hand: ${formatINR(result.monthlyInHand)}` })} className="flex-1 rounded-lg bg-light-bg px-4 py-3 text-sm font-semibold text-primary hover:brightness-95">Share estimate</button>
+          </div>
         </div>
       )}
     </div>

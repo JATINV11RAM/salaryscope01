@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GratuityCalc from "@/components/GratuityCalc";
+import CalculatorDetails, { calculatorDetailData } from "@/components/CalculatorDetails";
 
 export const metadata: Metadata = {
   title: "Gratuity Calculator India 2026",
@@ -19,6 +20,7 @@ export default function GratuityPage() {
           <p style={{ color: "#6B7280" }}>Estimate your gratuity as per the Payment of Gratuity Act 1972</p>
         </div>
         <GratuityCalc />
+        <CalculatorDetails {...calculatorDetailData("gratuity")} />
       </div>
     </div>
   );

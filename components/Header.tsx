@@ -23,7 +23,7 @@ export default function Header() {
         className="flex items-center justify-center px-4"
       >
         <p style={{ color: "#fff", fontSize: "12px" }} className="text-center">
-          Free salary calculators built for Indian payroll. No sign-up required.
+          FY 2025–26 salary planning, built for Indian payroll. No sign-up required.
         </p>
       </div>
 

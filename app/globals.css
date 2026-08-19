@@ -1,38 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #1A6B9A;
-  --color-accent: #F0A500;
-  --color-background: #FFFFFF;
-  --color-foreground: #1A1A2E;
-  --color-muted: #6B7280;
-  --color-light-bg: #F5F7FA;
-  --color-border: #E5E7EB;
+  --color-primary: #0f766e;
+  --color-accent: #f59e0b;
+  --color-background: #f8fafc;
+  --color-foreground: #102a43;
+  --color-muted: #52606d;
+  --color-light-bg: #eef6f5;
+  --color-border: #d9e2ec;
+  --color-ink-soft: #243b53;
 }
 
-* {
-  box-sizing: border-box;
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-inter), sans-serif;
-  min-width: 375px;
-}
-
-/* Utility classes */
-.container-site {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  opacity: 1;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--color-background); }
+body { background: var(--color-background); color: var(--color-foreground); font-family: var(--font-inter), sans-serif; min-width: 375px; }
+.container-site { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+:focus-visible { outline: 2px solid color-mix(in srgb, var(--color-primary) 55%, white); outline-offset: 2px; }
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { appearance: none; margin: 0; }\ninput[type="number"] { appearance: textfield; -moz-appearance: textfield; }
+@media (min-width: 768px) { .container-site { padding: 0 2rem; } }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import InHandCalculator from "@/components/InHandCalculator";
+import CalculatorDetails, { calculatorDetailData } from "@/components/CalculatorDetails";
 
 export const metadata: Metadata = {
   title: "In-Hand Salary Calculator India 2025-26",
@@ -11,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function InHandSalaryPage() {
   return (
-    <div className="py-12 px-4" style={{ backgroundColor: "#F5F7FA" }}>
-      <div className="max-w-3xl mx-auto">
+    <main className="bg-background px-4 py-12">
+      <div className="mx-auto max-w-4xl">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: "#1A1A2E" }}>
             In-Hand Salary Calculator India
@@ -23,6 +24,7 @@ export default function InHandSalaryPage() {
         </div>
 
         <InHandCalculator />
+        <CalculatorDetails {...calculatorDetailData("inhand")} />
 
         <div className="text-center mt-8">
           <Link
@@ -39,6 +41,6 @@ export default function InHandSalaryPage() {
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

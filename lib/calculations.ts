@@ -256,3 +256,22 @@ export function formatINR(amount: number): string {
 export function formatNumber(amount: number): string {
   return new Intl.NumberFormat('en-IN').format(amount);
 }
+
+export function compareOffers(firstCTC: number, secondCTC: number) {
+  const first = calculateInHandSalary({ ...({ annualCTC: firstCTC, variablePay: 0, basicPercent: 40, professionalTaxMonthly: 200, taxRegime: 'new', hraMonthly: 0, rentPaidMonthly: 0, deduction80C: 0, deduction80D: 0 }) });
+  const second = calculateInHandSalary({ ...({ annualCTC: secondCTC, variablePay: 0, basicPercent: 40, professionalTaxMonthly: 200, taxRegime: 'new', hraMonthly: 0, rentPaidMonthly: 0, deduction80C: 0, deduction80D: 0 }) });
+  return { first, second, monthlyDifference: second.monthlyInHand - first.monthlyInHand, threeYearDifference: (second.annualInHand - first.annualInHand) * 3 };
+}
+
+export function estimatePercentile(role: string, city: string, annualCTC: number) {
+  const bands: Record<string, [number, number, number]> = {
+    'Software Engineer': [600000, 1500000, 3000000],
+    'Data Analyst': [450000, 900000, 1800000],
+    'Product Manager': [1000000, 2200000, 4500000],
+  };
+  const [p25, p50, p75] = bands[role] ?? bands['Software Engineer'];
+  const cityFactor = city === 'Bengaluru' || city === 'Mumbai' ? 1.1 : city === 'Hyderabad' || city === 'Pune' ? 1.03 : 0.94;
+  const normalized = annualCTC / cityFactor;
+  const percentile = normalized <= p25 ? 25 : normalized <= p50 ? 25 + ((normalized - p25) / (p50 - p25)) * 25 : normalized <= p75 ? 50 + ((normalized - p50) / (p75 - p50)) * 25 : 75 + Math.min(24, ((normalized - p75) / p75) * 24);
+  return { percentile: Math.round(percentile), band: [p25 * cityFactor, p50 * cityFactor, p75 * cityFactor] };
+}

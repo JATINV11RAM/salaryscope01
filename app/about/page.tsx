@@ -57,7 +57,7 @@ export default function AboutPage() {
 
             <p className="mb-4 text-sm" style={{ color: "#6B7280" }}>
               All calculations are estimates for planning purposes. Your actual salary may differ based
-              on your employer's specific payroll structure. Always verify important decisions with your
+              on your employer&apos;s specific payroll structure. Always verify important decisions with your
               HR department or a qualified tax professional.
             </p>
             <p className="text-sm" style={{ color: "#6B7280" }}>

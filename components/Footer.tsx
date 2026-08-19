@@ -15,6 +15,10 @@ const calculatorLinks = [
   { label: "Salary Breakup", href: "/salary-breakup" },
   { label: "Gratuity Calculator", href: "/gratuity-calculator" },
   { label: "Notice Period Calculator", href: "/notice-period-calculator" },
+  { label: "Compare Offers", href: "/compare-offers" },
+  { label: "Percentile Estimator", href: "/percentile-estimator" },
+  { label: "Severance Pay Calculator", href: "/severance-pay-calculator-india" },
+  { label: "Professional Tax Guide", href: "/how-to-cut-professional-tax-on-salary" },
 ];
 
 export default function Footer() {

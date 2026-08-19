@@ -12,6 +12,8 @@ export async function GET() {
     "/notice-period-calculator",
     "/compare-offers",
     "/percentile-estimator",
+    "/severance-pay-calculator-india",
+    "/how-to-cut-professional-tax-on-salary",
     "/salary/software-engineer-salary-bangalore",
     "/salary/software-engineer-salary-hyderabad",
     "/salary/data-analyst-salary-india",

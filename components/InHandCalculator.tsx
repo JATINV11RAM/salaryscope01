@@ -35,7 +35,7 @@ export default function InHandCalculator() {
   }
 
   const inputClass =
-    "w-full rounded-lg px-4 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-blue-300";
+    "w-full rounded-lg px-4 py-3 text-sm border focus:outline-none focus:ring-0";
   const inputStyle = {
     border: "1px solid #E5E7EB",
     color: "#1A1A2E",
@@ -57,7 +57,7 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="e.g. 1000000"
+            placeholder="Enter annual CTC"
             value={inputs.annualCTC || ""}
             onChange={(e) => handleChange("annualCTC", Number(e.target.value))}
           />
@@ -73,7 +73,7 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="0 if none"
+            placeholder="Enter amount if applicable"
             value={inputs.variablePay || ""}
             onChange={(e) => handleChange("variablePay", Number(e.target.value))}
           />
@@ -88,7 +88,7 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="e.g. 40"
+            placeholder="Enter basic salary percentage"
             value={inputs.basicPercent || ""}
             onChange={(e) => handleChange("basicPercent", Number(e.target.value))}
           />
@@ -103,7 +103,7 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="0 if your state has no PT"
+            placeholder="Enter monthly professional tax"
             value={inputs.professionalTaxMonthly || ""}
             onChange={(e) => handleChange("professionalTaxMonthly", Number(e.target.value))}
           />
@@ -156,7 +156,7 @@ export default function InHandCalculator() {
                 type="number"
                 className={inputClass}
                 style={{ ...inputStyle, backgroundColor: "#fff" }}
-                placeholder="0"
+                placeholder="Enter amount"
                 value={inputs.hraMonthly || ""}
                 onChange={(e) => handleChange("hraMonthly", Number(e.target.value))}
               />
@@ -169,7 +169,7 @@ export default function InHandCalculator() {
                 type="number"
                 className={inputClass}
                 style={{ ...inputStyle, backgroundColor: "#fff" }}
-                placeholder="0"
+                placeholder="Enter amount"
                 value={inputs.rentPaidMonthly || ""}
                 onChange={(e) => handleChange("rentPaidMonthly", Number(e.target.value))}
               />
@@ -184,7 +184,7 @@ export default function InHandCalculator() {
                     type="number"
                     className={inputClass}
                     style={{ ...inputStyle, backgroundColor: "#fff" }}
-                    placeholder="0"
+                    placeholder="Enter amount"
                     max={150000}
                     value={inputs.deduction80C || ""}
                     onChange={(e) => handleChange("deduction80C", Number(e.target.value))}
@@ -198,7 +198,7 @@ export default function InHandCalculator() {
                     type="number"
                     className={inputClass}
                     style={{ ...inputStyle, backgroundColor: "#fff" }}
-                    placeholder="0"
+                    placeholder="Enter amount"
                     max={25000}
                     value={inputs.deduction80D || ""}
                     onChange={(e) => handleChange("deduction80D", Number(e.target.value))}

@@ -25,6 +25,6 @@
 html { scroll-behavior: smooth; background: var(--color-background); }
 body { background: var(--color-background); color: var(--color-foreground); font-family: var(--font-inter), sans-serif; min-width: 375px; }
 .container-site { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
-:focus-visible { outline: 3px solid color-mix(in srgb, var(--color-accent) 70%, white); outline-offset: 3px; }
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { opacity: 1; }
+:focus-visible { outline: 2px solid color-mix(in srgb, var(--color-primary) 55%, white); outline-offset: 2px; }
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { appearance: none; margin: 0; }\ninput[type="number"] { appearance: textfield; -moz-appearance: textfield; }
 @media (min-width: 768px) { .container-site { padding: 0 2rem; } }

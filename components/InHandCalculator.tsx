@@ -208,6 +208,10 @@ export default function InHandCalculator() {
           </div>
         )}
 
+        <div className="rounded-lg border border-border bg-light-bg p-4 text-sm leading-6 text-muted">
+          <strong className="text-foreground">FY 2025–26 assumptions:</strong> new-regime standard deduction ₹75,000, employee PF at 12% of basic, gratuity provision at 4.81% of basic, and professional tax as entered. Expand advanced assumptions for HRA and old-regime deductions.
+        </div>
+
         {error && <p className="text-sm text-red-600">{error}</p>}
 
         <button
@@ -286,6 +290,10 @@ export default function InHandCalculator() {
           <p className="mt-4 text-xs text-center" style={{ color: "#6B7280" }}>
             This is a planning estimate. Actual amount may vary based on exact payroll structure.
           </p>
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+            <button type="button" onClick={() => window.print()} className="flex-1 rounded-lg border border-border px-4 py-3 text-sm font-semibold text-foreground hover:bg-light-bg">Print / save PDF</button>
+            <button type="button" onClick={() => navigator.share?.({ title: "My SalaryScope estimate", text: `Estimated monthly in-hand: ${formatINR(result.monthlyInHand)}` })} className="flex-1 rounded-lg bg-light-bg px-4 py-3 text-sm font-semibold text-primary hover:brightness-95">Share estimate</button>
+          </div>
         </div>
       )}
     </div>

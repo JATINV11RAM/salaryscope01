@@ -1,0 +1,4 @@
+import type { Metadata } from "next";
+import PercentileEstimator from "@/components/PercentileEstimator";
+export const metadata: Metadata = { title: "Salary Percentile Estimator India", description: "Estimate where your salary sits compared with indicative Indian market bands by role and city." };
+export default function Page(){return <div className="container-site py-14 md:py-20"><div className="mx-auto max-w-3xl"><p className="font-mono text-xs font-semibold uppercase tracking-[.18em] text-primary">Market context</p><h1 className="mt-3 text-4xl font-bold tracking-tight">Where does your salary sit?</h1><p className="mt-5 text-lg leading-8 text-muted">Get an approximate percentile for a role and city. It is a conversation starter for appraisals and negotiations, not a promise of market value.</p><div className="mt-10"><PercentileEstimator /></div></div></div>}

@@ -27,11 +27,11 @@ export default function DisclaimerPage() {
               While we strive to keep the calculators updated with the latest rules for FY 2025-26, Indian tax 
               laws and payroll regulations are complex and subject to frequent changes. The information presented 
               here may not always reflect the most recent amendments or cover every unique edge case. Your actual 
-              take-home salary, tax liability, or gratuity payout may differ based on your employer's specific 
+              take-home salary, tax liability, or gratuity payout may differ based on your employer&apos;s specific 
               payroll structure, exact exemptions you claim, and final assessments by the Income Tax Department.
             </p>
             <p className="mb-4">
-              Always verify your financial numbers with your company's Human Resources (HR) department, a 
+              Always verify your financial numbers with your company&apos;s Human Resources (HR) department, a 
               certified Chartered Accountant (CA), or a qualified tax professional before making any significant 
               financial decisions, negotiating job offers, or filing tax returns.
             </p>

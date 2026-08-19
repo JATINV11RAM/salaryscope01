@@ -1,0 +1,4 @@
+import type { Metadata } from "next";
+import OfferComparison from "@/components/OfferComparison";
+export const metadata: Metadata = { title: "Compare Job Offers by In-Hand Salary", description: "Compare two CTC offers by estimated monthly take-home pay and three-year cash difference." };
+export default function Page(){return <div className="container-site py-14 md:py-20"><div className="mx-auto max-w-3xl"><p className="font-mono text-xs font-semibold uppercase tracking-[.18em] text-primary">Offer decision tool</p><h1 className="mt-3 text-4xl font-bold tracking-tight">Which job offer pays you more in real cash?</h1><p className="mt-5 text-lg leading-8 text-muted">Compare two annual CTC figures using the same transparent assumptions. Use it as a first pass before comparing role, growth and equity.</p><div className="mt-10"><OfferComparison /></div></div></div>}

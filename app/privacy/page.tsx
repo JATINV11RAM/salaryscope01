@@ -56,13 +56,13 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold mt-6 mb-2" style={{ color: "#1A6B9A" }}>Opting Out of Personalised Ads</h2>
             <p className="mb-4">
               You can easily opt out of personalised advertising at any time. To do so, visit your 
-              <strong> Google Ad Settings</strong>. Alternatively, you can opt out of a third-party vendor's 
+              <strong> Google Ad Settings</strong>. Alternatively, you can opt out of a third-party vendor&apos;s 
               use of cookies for personalised advertising by visiting <strong>www.aboutads.info</strong>.
             </p>
 
             <h2 className="text-lg font-semibold mt-6 mb-2" style={{ color: "#1A6B9A" }}>Disabling Cookies</h2>
             <p className="mb-4">
-              If you prefer not to use cookies at all, you can disable them directly through your web browser's 
+              If you prefer not to use cookies at all, you can disable them directly through your web browser&apos;s 
               settings. Look for the privacy or security section in your browser preferences to manage cookie 
               permissions. Disabling cookies will not affect your ability to use our calculators.
             </p>

@@ -5,8 +5,8 @@ import { calculateInHandSalary, formatINR, type InHandInputs } from "@/lib/calcu
 const defaultInputs: InHandInputs = {
   annualCTC: 0,
   variablePay: 0,
-  basicPercent: 40,
-  professionalTaxMonthly: 200,
+  basicPercent: 0,
+  professionalTaxMonthly: 0,
   taxRegime: "new",
   hraMonthly: 0,
   rentPaidMonthly: 0,
@@ -31,7 +31,7 @@ export default function InHandCalculator() {
       return;
     }
     setError("");
-    setResult(calculateInHandSalary(inputs));
+    setResult(calculateInHandSalary({ ...inputs, basicPercent: inputs.basicPercent || 40, professionalTaxMonthly: inputs.professionalTaxMonthly || 0 }));
   }
 
   const inputClass =
@@ -88,8 +88,8 @@ export default function InHandCalculator() {
             type="number"
             className={inputClass}
             style={inputStyle}
-            placeholder="              Usually 40–50% of fixed salary"
-            value={inputs.basicPercent}
+            placeholder="e.g. 40"
+            value={inputs.basicPercent || ""}
             onChange={(e) => handleChange("basicPercent", Number(e.target.value))}
           />
         </div>
@@ -104,7 +104,7 @@ export default function InHandCalculator() {
             className={inputClass}
             style={inputStyle}
             placeholder="0 if your state has no PT"
-            value={inputs.professionalTaxMonthly}
+            value={inputs.professionalTaxMonthly || ""}
             onChange={(e) => handleChange("professionalTaxMonthly", Number(e.target.value))}
           />
         </div>
@@ -208,10 +208,6 @@ export default function InHandCalculator() {
             )}
           </div>
         )}
-
-        <div className="rounded-lg border border-border bg-light-bg p-4 text-sm leading-6 text-muted">
-          <strong className="text-foreground">FY 2025–26 assumptions:</strong> new-regime standard deduction ₹75,000, employee PF at 12% of basic, gratuity provision at 4.81% of basic, and professional tax as entered. Expand advanced assumptions for HRA and old-regime deductions.
-        </div>
 
         {error && <p className="text-sm text-red-600">{error}</p>}
 
